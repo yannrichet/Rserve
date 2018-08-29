@@ -344,14 +344,14 @@ static int oob_context_prefix = 0; /* if set, context is prepended in OOB
 									  
 									  
 /* FIXME: self.* commands can be loaded either from Rserve.so or from stand-alone binary.		
-￼    This will cause a mess since some things are private and some are not - we have to sort that out.		
-￼    In the meantime a quick hack is to make the relevant config (here enable_oob) global */		
-￼ static int enable_oob = 0;
-￼ static args_t *self_args;
+    This will cause a mess since some things are private and some are not - we have to sort that out.		
+    In the meantime a quick hack is to make the relevant config (here enable_oob) global */		
+static int enable_oob = 0;
+static args_t *self_args;
 SEXP idle_object;		
-￼￼ static int compute_subprocess = 0;		
-￼￼ /* stdout/err re-direction feeder FD (or 0 if not used) */		
-￼ static int std_fw_fd;
+static int compute_subprocess = 0;		
+/* stdout/err re-direction feeder FD (or 0 if not used) */		
+static int std_fw_fd;
 							  
 #ifdef DAEMON
 int daemonize = 1;
