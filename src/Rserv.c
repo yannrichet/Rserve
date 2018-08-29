@@ -280,6 +280,8 @@ typedef union { char c[16]; int i[4]; } rsmsg_addr_t;
 
 #define MAX_CTRL_DATA (1024*1024) /* max. length of data for control commands - larger data will be ignored */
 
+static void handle_std_fw();
+
 #include "RSserver.h"
 #include "websockets.h"
 #include "http.h"
@@ -468,8 +470,6 @@ static void prepare_set_user(int uid, int gid) {
 	if (workdir && /* FIXME: gid=0 will be bad here ! */
 		chown(wdname, uid, gid)) {}
 }
-
-static void handle_std_fw();
 
 /* send/recv wrappers that are more robust */
 int cio_send(int s, const void *buffer, int length, int flags) {
