@@ -220,6 +220,8 @@ extern __declspec(dllimport) int R_SignalHandlers;
 #endif
 #include <R_ext/Parse.h>
 
+static void handle_std_fw();
+
 #include "Rsrv.h"
 #include "qap_encode.h"
 #include "qap_decode.h"
@@ -279,8 +281,6 @@ typedef union { char c[16]; int i[4]; } rsmsg_addr_t;
 #define RSMSG_ADDR_LEN (sizeof(rsmsg_addr_t))
 
 #define MAX_CTRL_DATA (1024*1024) /* max. length of data for control commands - larger data will be ignored */
-
-static void handle_std_fw();
 
 #include "RSserver.h"
 #include "websockets.h"
