@@ -346,10 +346,10 @@ static int oob_context_prefix = 0; /* if set, context is prepended in OOB
 /* FIXME: self.* commands can be loaded either from Rserve.so or from stand-alone binary.		
     This will cause a mess since some things are private and some are not - we have to sort that out.		
     In the meantime a quick hack is to make the relevant config (here enable_oob) global */		
-static int enable_oob = 0;
-static args_t *self_args;
+int enable_oob = 0;
+args_t *self_args;
 SEXP idle_object;		
-static int compute_subprocess = 0;		
+int compute_subprocess = 0;		
 /* stdout/err re-direction feeder FD (or 0 if not used) */		
 static int std_fw_fd;
 							  
@@ -481,20 +481,7 @@ int cio_send(int s, const void *buffer, int length, int flags) {
 
 static int last_idle_time;
 
-/* FIXME: self.* commands can be loaded either from Rserve.so or from stand-alone binary.
-   This will cause a mess since some things are private and some are not - we have to sort that out.
-   In the meantime a quick hack is to make the relevant config (here enable_oob) global */
-int enable_oob = 0;
-args_t *self_args;
-/* object to send with the idle call; it could be used for notification etc. */
- SEXP idle_object;
-
-int compute_subprocess = 0;
-
 static int send_oob_sexp(int cmd, SEXP exp);
-
-/* stdout/err re-direction feeder FD (or 0 if not used) */
-static int std_fw_fd;
 
 /* from ioc.c */
 SEXP ioc_read(int *type);
