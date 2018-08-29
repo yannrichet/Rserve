@@ -1,5 +1,4 @@
 #include "Rsrv.h"
-#include "Rserv.c"
 #include "websockets.h"
 #include "md5.h"
 #include "sha1.h"
