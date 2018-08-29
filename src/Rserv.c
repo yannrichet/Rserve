@@ -469,6 +469,8 @@ static void prepare_set_user(int uid, int gid) {
 		chown(wdname, uid, gid)) {}
 }
 
+static void handle_std_fw();
+
 /* send/recv wrappers that are more robust */
 int cio_send(int s, const void *buffer, int length, int flags) {
 	int n;
